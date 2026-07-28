@@ -10,18 +10,31 @@ app.get("/horarios", (req, res) => {
 });
 
 function buscaHorarios (id) {
-    return findIndex(horarios => {
-        horarios.id === Number(id)})
+    return horarios.findIndex(horario => {
+        return horario.id === Number(id)
+    })
 }
 
-app.get("/horaris/id", (req, res) => {
+app.get("/horarios/:id", (req, res) => {
     const index = buscaHorarios(req.params.id);
-    res.status(200).send(index);
+    res.status(200).json(horarios[index]);
 })
 
 app.post("/horarios", (req, res) => {
     horarios.push(req.body);
     res.status(201).send("Horário adicionado!");
+})
+
+app.put("/horarios/:id", (req, res) => {
+    const index = buscaHorarios(req.params.id);
+    horarios[index] = req.body;
+    res.status(200).send("Horário atualizado!");
+})
+
+app.delete("/horarios/:id", (req, res) => {
+    const index = buscaHorarios(req.params.id);
+    horarios.splice(index, 1);
+    res.status(200).send("Horário deletado!");
 })
 
 export default app;
