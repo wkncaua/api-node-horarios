@@ -3,6 +3,8 @@ import conectaNaBase from "./config/dbConnect.js";
 
 const conexao = await conectaNaBase();
 
+console.log(conexao);
+
 conexao.on("error", (erro)  => {
     console.log("Erro de conexão!", erro);
 });
@@ -16,7 +18,8 @@ app.use(express.json());
 
 const horarios = [];
 
-app.get("/horarios", (req, res) => {
+app.get("/horarios", async (req, res) => {
+    const colecaoHorarios = await horarios.find({});
     res.status(200).json(horarios);
 });
 

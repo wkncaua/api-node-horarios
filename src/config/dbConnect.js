@@ -1,7 +1,8 @@
-import mongoose from "mongoose";
+import mongoose, {mongo} from "mongoose";
 
 function conectaNaBase() {
-    mongoose.connect("mongodb+srv://warkencaua04_db_user:6Rj29IuHu0lbRJpr@cluster0.x0qcni5.mongodb.net/horarios");
+    mongoose.connect(process.env.DB_CONNECTION_STRING);
+    return mongoose.connection;
 }
 
 export default conectaNaBase;
