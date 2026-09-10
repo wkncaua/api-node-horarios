@@ -1,4 +1,4 @@
-import jogadores from '../model/jogadoresModel.js'
+import jogadores from '../model/JogadoresModel.js'
 
 class JogadoresController {
 
@@ -21,12 +21,13 @@ class JogadoresController {
     static async atualizar (req,res) {
         const id = req.params.id;
         const jogadorAtualizado = await jogador.findByIdAndUpdate(id);
-        res.status(200).json(message : "Jogador atualizado com sucesso!", jogador : jogadorAtualizado);
+        res.status(200).json({message : "Jogador atualizado com sucesso!", jogador : jogadorAtualizado});
     }
 
     static async excluir (req,res) {
         const id = req.params.id;
         await jogador.findByIdAndDelete(id);
+        res.status(200).json({message : "Jogador excluído com sucesso!"});
     }
 }
 

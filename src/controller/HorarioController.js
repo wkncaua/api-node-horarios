@@ -34,7 +34,7 @@ class HorarioController {
     static async excluir(req,res) {
         const id = req.params.id;
         await horarios.findByIdAndDelete(id);
-        res.status(200).json({message : "Horário delatado com sucesso!"})
+        res.status(200).json({message : "Horário delatado com sucesso!"});
     }
 }
 

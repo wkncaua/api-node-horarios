@@ -6,6 +6,6 @@ const jogadoresSchema = new mongoose.Schema( {
     goleiro: {type: Boolean},
 }, { versionKey: false});
 
-const jogardores = mongoose.model('jogadores', jogadoresSchema);
+const jogadores = mongoose.model('jogadores', jogadoresSchema);
 
 export default jogadores;
