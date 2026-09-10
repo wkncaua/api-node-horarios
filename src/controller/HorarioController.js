@@ -1,5 +1,5 @@
 import horarios from '../model/HorariosModel.js';
-import HorarioModel from '../model/HorariosModel.js';
+import jorarioModel from '../model/HorariosModel.js';
 
 class HorarioController {
     
